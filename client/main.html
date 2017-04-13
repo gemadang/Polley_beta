@@ -1,0 +1,394 @@
+<head>
+  <meta charset="utf-8">
+  <title>startpolley</title>
+  <!-- <link rel="stylesheet" type="text/css" href="main.css"> -->
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <style>
+      template {background-color: #ffffff}
+    </style>
+</head>
+
+<template name="home">
+  <h1></h1>
+  <!-- <div class="ui masive feed">
+    <div class="event">
+      <div class="ui big circular label">
+        <img src="geri.png">
+      </div>
+      <div class="content">
+        <div class="date">
+          3 days ago
+        </div>
+      <div class="summary">
+         <a href="1">Geri Madanguit</a> added 2 polls
+      </div>
+      <div class="extra images">
+        <a href="1"><img src="multichoice1.png"></a>
+        <a href="2"><img src="weightpoll1.png"></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="ui masive feed">
+  <div class="event">
+    <div class="ui big circular label">
+      <img src="eshetu.png">
+    </div>
+    <div class="content">
+      <div class="date">
+        3 days ago
+      </div>
+    <div class="summary">
+       <a href="1">Eshetu Shiferaw</a> added poll
+    </div>
+    <div class="extra images">
+      <a href="1" ><img src="multichoice1.png"></a>
+    </div>
+  </div>
+</div>
+</div> -->
+  <!-- <div class="polls">
+    <h3>checking</h3>
+    {{ #each polls }}
+        {{ >poll }}
+    {{ /each }}
+  </div> -->
+  <div name="feedside">
+    <div class="ui raised very padded text container segment">
+      <div class="ui category search">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="Search by poll topic...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
+      </div>
+    </div>
+  </div>
+  {{> displayfeed}}
+  <!-- <div name="feedside">
+    <div class="ui raised very padded text container segment">
+      <h2 class="ui header">Dogs Roles with Humans</h2>
+      <p></p>
+      <p></p>
+    </div>
+  </div> -->
+  {{> Nav}}
+</template>
+
+<template name="profile">
+  <h1>Profile</h1>
+  {{> Nav}}
+</template>
+
+<template name="poll1">
+  <h1>Poll</h1>
+  <button class="ui fixed button">
+    Rotate Right
+  </button>
+  <div class="ui square shape">
+  <div class="sides">
+    <div class="active side">
+      <div class="content">
+        <div class="center">
+          <div class="image">
+            <a href="/pulley" ><img src="weightpoll1.png"></a>
+          </div>
+          <div class="content">
+            <div class="header">Weighted polls </div>
+              <div class="description">
+                Description:
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="side">
+      <div class="content">
+        <div class="center">
+          <div class="image">
+            <a href="/testing" ><img href="2" src="multichoice1.png"></a>
+          </div>
+          <div class="content">
+            <div class="header">Multiple choice poll </div>
+              <div class="description">
+                Description:
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <button class="ui fixed button">
+  Left
+</button> -->
+<script>
+  $('.button').click(function(){
+      $('.shape').shape('flip right');
+    });
+    </script>
+  {{> Nav}}
+</template>
+<template name="messages">
+  <h1>Messages</h1>
+  <div class="messaging" >
+  {{> mainBox}}
+  </div>
+  {{> Nav}}
+</template>
+<template name="about">
+
+    <h1>About Polley</h1>
+    <div class="aboutpolley">
+      <p>Polley is a social media web application that utilizes poll and data collection as a social activity
+        but also creates a platform for users to receive feedback from the public on surveys or polls. The main
+        features of our application include a feed, a user profile, a messaging system, and a wide selection of
+        polls. Polley connects all these main features in a social network for a user-friendly interface. Our
+        team constructed this website using Meteor.js, several Atmosphere packages and Node.js.</p>
+  </div>
+
+  <div class="pollersheading">Pollers</div>
+    <div align="center" class="pollers">
+      <div class="poller1">
+        <h2>Geri Madanguit</h2>
+          <a href="https://www.linkedin.com/in/gerimadanguit/"><img class="pollerimage" src="geri.png"></a>
+            <p>Geri is in charge of managing the team and researching development tools.</p>
+      </div>
+      <div class="poller1">
+        <h2>Tofunmi Akinwale</h2>
+          <a href="https://www.linkedin.com/in/tofunmiakinwale/"><img class="pollerimage" src="tofu.png"></a>
+            <p>Tofunmi Akinwale is responsible for creating the login page and creating user accounts.</p>
+      </div>
+      <div class="poller1">
+        <h2>Eshetu Shiferaw</h2>
+          <a href="https://www.linkedin.com/in/eshetu-shiferaw-158b109a/"><img class="pollerimage" src="eshetu.png"></a>
+            <p>Eshetu Shiferaw is in charge of creating the feed where all the polls
+              created by users go.
+            </p>
+      </div>
+      <div class="poller1">
+        <h2>Andrew Fowler</h2>
+          <a href="https://www.linkedin.com/in/andrewrfowler/"><img class="pollerimage" src="andrew.png"></a>
+            <p>Andrew is in charge of creating user profiles, allowing them to manage the polls created.</p>
+      </div>
+      <div class="poller1">
+        <h2>Farhana Mustafa</h2>
+          <a href="https://www.linkedin.com/in/fmustafa/"><img class="pollerimage" src="farhana.png"></a>
+            <p>Farhana is in charge of creating and adding all poll options that is offered.</p>
+      </div>
+      <div class="poller1">
+        <h2>Paakwesi Quansah</h2>
+          <a href="https://www.linkedin.com/in/paakwesi-quansah-b93380b2/"><img class="pollerimage" src="paak.png"></a>
+            <p>Paakwesi is in charge of creating a messaging platform for users.</p>
+      </div>
+    </div>
+  {{> Nav}}
+</template>
+
+<template name="Nav">
+  <div class="ui pink sidebar pushable icon vertical left inverted menu">
+    <a href="/" class="item">
+      <i class="huge green home icon"></i>
+      Home
+    </a>
+    <a href="/profile" class="item">
+      <i class="huge green user icon"></i>
+      Profile
+    </a>
+    <a href="/poll1" class="item">
+      <i class="huge green checkmark box icon"></i>
+      Create Poll
+    </a>
+    <a href="/messages" class="item">
+      <i class="huge green mail icon"></i>
+      Messages
+    </a>
+    <a href="/about" class="item">
+      <i class="huge green users calendar icon"></i>
+      About Polley
+    </a>
+  </div>
+  <div class="ui grey icon top fixed menu">
+    <div id="toggle" class="item">
+      <i class="huge sidebar icon"></i>
+    </div>
+    <div class="Logo">
+      <a class="Logo-pic" href="/"><img src="polleylogo3.png" width="50%"></a>
+    </div>
+    <div class="left menu">
+      <a href="#" class="ui item active">
+        Logout
+      </a>
+    </div>
+  </div>
+
+  <div class="pusher" style="width: 0">
+       <!-- style="width: 0" -->
+    <div class="ui container">
+    </div>
+    <!-- TEST -->
+    <!-- END TEST-->
+  </div>
+  <script>
+    $('#toggle').click(function(){
+      $('.ui.sidebar').sidebar('toggle');
+    });
+  </script>
+</template>
+
+<!-- .dimmer('hide')-->
+<!-- POLL OPTIONS-->
+<template name ="pulley">
+
+<form>
+    <div class="form-group">
+        <label>Question</label>
+            <input type="text" name="question" class="form-control" placeholder="Your Question">
+    </div>
+</form>
+
+<div class="blackcircle">
+
+<div class="leftSlant"></div>
+<div class="leftLine">
+    <div id="pinkcircle">
+        <div id="pinktext">
+            <input type="text" name="pink" class="form-control" placeholder="Enter choice here...">
+        </div>
+    </div>
+</div>
+
+<div class="rightSlant"></div>
+<div class="rightLine">
+    <div id="greencircle">
+        <div id="greentext">
+            <input type="text" name="green" class="form-control" placeholder="Enter choice here...">
+        </div>
+    </div>
+</div>
+
+
+</div>
+<button name="createbutton" class="ui fixed button">
+  Create Poll
+</button>
+{{> Nav}}
+</template>
+
+
+<!-- multi polls  -->
+<!-- <template name="createpoll">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              {{ >pollForm }}
+          </div>
+        </div>
+      </div>
+
+    <div class="polls">
+        {{ #each polls }}
+            {{ >poll }}
+        {{ /each }}
+      </div>
+</template>
+
+ <template name="pollForm">
+
+<form>
+    <div class="pollform-group">
+        <label>Question</label>
+        <input type="text" name="question" class="form-control" placeholder="Your Question">
+    </div>
+
+    <div class="pollform-group">
+        <label>Choice #1</label>
+        <input type="text" name="choice1" class="form-control" placeholder="Enter choice here...">
+    </div>
+    <div class="pollform-group">
+        <label>Choice #2</label>
+        <input type="text" name="choice2" class="form-control" placeholder="Enter choice here...">
+    </div>
+    <div class="pollform-group">
+        <label>Choice #3</label>
+        <input type="text" name="choice3" class="form-control" placeholder="Enter choice here...">
+    </div>
+    <div class="pollform-group">
+        <label>Choice #4</label>
+        <input type="text" name="choice4" class="form-control" placeholder="Enter choice here...">
+    </div>
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Create Poll</button>
+</form>
+{{> Nav}}
+</template>
+
+<template name="poll">
+
+<div class="poll well well-lg" data-id="{{ _id }}">
+
+    <h3 class="text-center">{{ question }}</h3>
+
+    {{ #each indexedArray choices }}
+        <a href="#" class="vote btn btn-success btn-block" data-id="{{ _index }}">
+            <span class="votes pull-right">{{ votes }}</span>
+            <span class="text">{{ text }}</span>
+        </a>
+    {{ /each }}
+
+</div>
+</template>
+
+<template name="grabpolls">
+  <div class="polls">
+      {{ #each polls }}
+          {{ >poll }}
+      {{ /each }}
+    </div>
+</template> -->
+<!--
+<template name="poll">
+
+<div class="poll well well-lg" data-id="{{ _id }}">
+
+    <h3>{{ question }}</h3>
+
+    {{ #each indexedArray choices }}
+        <a href="#" class="vote btn btn-primary btn-block" data-id="{{ _index }}">
+            <span class="votes pull-right">{{ votes }}</span>
+            <span class="text">{{ text }}</span>
+        </a>
+    {{ /each }}
+
+</div>
+</template> -->
+
+
+<!-- MESSAGES TEMPLATES-->
+<template name="mainBox">
+  <div class='container'>
+    <h2>Polley Chat</h2>
+    {{> chatBox}}
+  </div>
+</template>
+
+<template name="chatBox">
+  <div id='messages'>
+    {{#each messages}}
+      {{>chatMessage}}
+    {{/each}}
+  </div>
+  <textarea id='chat-message'></textarea><br>
+  <button type="button" class='btn btn-primary' id='send'>Send Chat</button>
+</template>
+
+<template name="chatMessage">
+  <div>
+    <b>{{user}}:</b> {{message}}
+  </div>
+</template>
